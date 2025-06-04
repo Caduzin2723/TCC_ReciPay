@@ -11,7 +11,7 @@ import { useRouter } from 'expo-router';
 export default function Dasboard() {
     return (
         <View style={styles.container}>
-            <View style={{ width: '90%', height: '10%', backgroundColor: '#171717', justifyContent: 'center' }}>
+            <View style={{ width: '100%', height: '10%', backgroundColor: '#171717', justifyContent: 'center' }}>
                 <View style={{ width: 45, height: 45, backgroundColor: '#171717', borderRadius: 2, marginLeft: 30 }}>
                     <TouchableOpacity
                         style={{

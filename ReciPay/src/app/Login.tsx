@@ -8,14 +8,14 @@ import { useRouter } from 'expo-router';
  #fff - texto dos inputs */}
 
 export default function Login() {
-  const [isFocused, setIsFocused] = useState(false);
   const router = useRouter();
+  const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <View style={styles.container}>{/* abrindo view - background */}
-      <View style={{ width: '80%', height: 15, backgroundColor: '#67EB60', borderRadius: 2, marginTop: 25 }} />{/* abrindo view - barra verde */}
+    <View style={styles.container}>{/* View - background */}
+      <View style={{ width: '100%', height: 15, backgroundColor: '#67EB60', borderRadius: 2, marginTop: 0 }} />{/* abrindo view - barra verde */}
 
-      <View style={{ width: '80%', gap: 20, marginTop: 60 }}>{/* abrindo view - botão de cancelar login */}
+      <View style={{ width: '80%', gap: 20, marginTop: 60 }}>{/* View - botão de cancelar login */}
         <View style={{
           width: 40,
           height: 40,
@@ -42,26 +42,21 @@ export default function Login() {
 
           </TouchableOpacity>
         </View>
-      </View>{/* fechando view - botão de cancelar login */}
+      </View>{/* View - botão de cancelar login */}
 
-      <View style={{ width: '75%', gap: 10, marginTop: 70 }}> {/* abrindo view - container de logo e título */}
+      <View style={{ width: '75%', gap: 10, marginTop: 70 }}> {/* View - container de logo e título */}
         <Text style={{ color: '#dddddd', fontSize: 28, textAlign: 'left' }}>
           Entrar
         </Text>
       </View>
 
-      <View style={{ width: '75%', gap: 30, marginTop: 50 }}> {/* abrindo view - container de inputs */}
+      <View style={{ width: '75%', gap: 30, marginTop: 50 }}> {/* View - container de inputs */}
         <View>
           <Text style={{ color: '#ccc', fontSize: 18, margin: 0, padding: 0 }}>
             E-mail
           </Text>
           <TextInput
-            style={[
-              styles.form,
-              { borderColor: isFocused ? '#EB6060' : '#67EB60' } /* vermelho ou verde */
-            ]}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
+            style={styles.form}
             placeholder=" "
             placeholderTextColor="#999999" />
         </View>
@@ -70,12 +65,19 @@ export default function Login() {
             Senha
           </Text>
           <TextInput
-            style={styles.form}
-            placeholder=" " />
+            style={[
+          styles.form,
+          isFocused && styles.inputFocused // aplica a borda verde se estiver focado
+        ]}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        placeholder=" "
+        placeholderTextColor="#999"
+      />
         </View>
-      </View> {/* fechando view - container de inputs */}
+      </View>
 
-      <View style={{ width: '70%', gap: 10, marginTop: 50 }}> {/* abrindo view - botão 'entrar' */}
+      <View style={{ width: '70%', gap: 10, marginTop: 50 }}> {/* View - botão 'entrar' */}
         <TouchableOpacity
           style={{
             width: '100%',
@@ -85,7 +87,7 @@ export default function Login() {
             justifyContent: 'center',
             alignItems: 'center'
           }}
-          onPress={() => router.push('/Dasboard') /* redireciona para a página de dashboard */}
+          onPress={() => router.push('../Dasboard') /* redireciona para a página de dashboard */}
         >
           <Text style={{
             color: '#1D1D1D',
@@ -107,7 +109,7 @@ export default function Login() {
 
 
 
-// STILOX
+// ESTILOS
 const styles = StyleSheet.create({
   container: {
     width: '100%',
@@ -121,7 +123,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 40,
     backgroundColor: '#403E3E',
-    borderColor: '#67EB60',
+    borderColor: 'transparent',
     color: '#ffff',
     borderWidth: 2,
     borderRadius: 8,
@@ -129,4 +131,9 @@ const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
   },
+
+    inputFocused: {
+    borderColor: '#67EB60',
+  },
+
 });
