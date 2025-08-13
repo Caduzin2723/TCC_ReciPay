@@ -1,0 +1,1 @@
+// lógica de validação de token
