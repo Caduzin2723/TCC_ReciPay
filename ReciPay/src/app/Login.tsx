@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Image, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
+import BotaoCancelar from '../Components/buttons';
 {/* cores:
  #1D1D1D - fundo
  #403E3E - fundo dos inputs
@@ -14,35 +15,7 @@ export default function Login() {
   return (
     <View style={styles.container}>{/* View - background */}
       <View style={{ width: '100%', height: 15, backgroundColor: '#67EB60', borderRadius: 2, marginTop: 0 }} />{/* abrindo view - barra verde */}
-
-      <View style={{ width: '80%', gap: 20, marginTop: 60 }}>{/* View - botão de cancelar login */}
-        <View style={{
-          width: 40,
-          height: 40,
-          borderRadius: 20,
-          backgroundColor: '#403E3E',
-        }}>
-          <TouchableOpacity
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: 20,
-              backgroundColor: '#403E3E',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-            onPress={() => router.push('../') /* redireciona para a página inicial */}
-          >
-            <Text style={{
-              color: '#67EB60',
-              textAlign: 'center',
-              lineHeight: 40,
-              fontSize: 25
-            }}>x</Text>
-
-          </TouchableOpacity>
-        </View>
-      </View>{/* View - botão de cancelar login */}
+    <BotaoCancelar/>
 
       <View style={{ width: '75%', gap: 10, marginTop: 70 }}> {/* View - container de logo e título */}
         <Text style={{ color: '#dddddd', fontSize: 28, textAlign: 'left' }}>
