@@ -1,7 +1,7 @@
 // definição do modelo User
 
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('.../config/database')
+const { sequelize } = require('src/backend/config/database')
 
 const User = sequelize.define('User', {
     email: {
